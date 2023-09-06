@@ -1,4 +1,4 @@
-package ru.job4j.lessons.inheritance;
+package ru.job4j.zeal.ru.job4j.inheritance;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
