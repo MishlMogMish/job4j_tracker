@@ -104,4 +104,24 @@ public class TrackerTest {
         assertThat(result).isFalse();
     }
 
+    @Test
+    public void whenDeleteItemIsSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        int id = item.getId();
+        tracker.delete(id);
+        assertThat(tracker.findById(id)).isNull();
+    }
+
+    @Test
+    public void whenDeleteItemIsNotSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        int id = item.getId();
+        tracker.delete(1000);
+        assertThat(tracker.findById(id).getName()).isEqualTo("Bug");
+    }
+
 }
