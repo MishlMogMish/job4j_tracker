@@ -1,0 +1,36 @@
+package ru.job4j.zeal.ru.job4j.enumeration;
+
+public class Order {
+    private  int number;
+    private String car;
+    private Status status;
+
+    public Order(int number, String car, Status status) {
+        this.number = number;
+        this.car = car;
+        this.status = status;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String getCar() {
+        return car;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{"
+                + "number=" + number
+                + ", car='" + car + '\''
+                + ", status=" + status.getInfo()
+                + ", detailed info: " + status.getMessage()
+                + '}';
+    }
+}
+
