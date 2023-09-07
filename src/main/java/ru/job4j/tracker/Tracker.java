@@ -30,11 +30,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] temp = new Item[size];
-        for (int i = 0; i < size; i++) {
-            temp[i] = items[i];
-        }
-        return temp;
+        return Arrays.copyOf(items, size);
     }
 
     public boolean replace(int id, Item item) {
