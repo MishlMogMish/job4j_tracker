@@ -29,5 +29,4 @@ public class Varargs {
 
         System.out.println(text("aaaa", "cc", "vvv", "jfjfjfjfjfj", "ijoijboijnoijnoijnoijn"));
     }
-
 }
