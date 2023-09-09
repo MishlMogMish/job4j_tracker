@@ -11,9 +11,15 @@ public class StartUI {
             showMenu();
             System.out.println("Select: ");
             int select = Integer.parseInt(scanner.nextLine());
-            if (select != 6) {
+            if (select == 0) {
                 System.out.println("Пользователь выбрал: " + select);
-            } else {
+                System.out.println("=== Create a new Item ===");
+                System.out.println("Enter name: ");
+                String name = scanner.nextLine();
+                Item item = new Item(name);
+                tracker.add(item);
+                System.out.println("Добавленная заявка: " + item);
+            } else if (select == 6) {
                 run = false;
                 System.out.println("Выход из программы ...");
             }
@@ -35,6 +41,6 @@ public class StartUI {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Tracker tracker = new Tracker();
-        new  StartUI().init(scanner, tracker);
+        new StartUI().init(scanner, tracker);
     }
 }
