@@ -13,18 +13,18 @@ public class Matches {
             System.out.println("Всего спичек: " + count);
             System.out.println(player + " введите число от 1 до 3: ");
             int matches = Integer.parseInt(input.nextLine());
-            turn = !turn;
-            if (matches < 1 || matches > 3 || count < matches) {
+            if (matches < 1 || matches > Math.min(3, count)) {
                 System.out.println();
                 System.out.println("Введите правильное число от 1 до 3 и не больше чем осталось спичек: ");
-                turn = !turn;
-            } else if (count == matches) {
-                System.out.println(player + " победил!");
-                break;
             } else {
-                System.out.println("Ход переходит другому игроку\n");
                 count -= matches;
+                turn = !turn;
             }
+        }
+        if (!turn) {
+            System.out.println("Выиграл первый игрок");
+        } else {
+            System.out.println("Выиграл второй игрок");
         }
     }
 }
