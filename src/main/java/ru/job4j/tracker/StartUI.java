@@ -60,7 +60,7 @@ public class StartUI {
 
             } else if (select == 5) {
                 System.out.println("=== Find items by name ===");
-                System.out.println("Enter name: ");
+                System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 Item[] items = tracker.findByName(name);
                 if (items.length > 0) {
@@ -70,9 +70,7 @@ public class StartUI {
                 } else {
                     System.out.println("Заявки с именем: " + name + " не найдены.");
                 }
-            }
-
-            if (select == 6) {
+            } else if (select == 6) {
                 run = false;
                 System.out.println("Выход из программы ...");
             }
