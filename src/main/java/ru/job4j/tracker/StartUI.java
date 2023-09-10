@@ -11,7 +11,6 @@ public class StartUI {
             System.out.print("Select: ");
             int select = Integer.parseInt(scanner.nextLine());
             if (select == 0) {
-                System.out.println("Пользователь выбрал: " + select);
                 System.out.println("=== Create a new Item ===");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
