@@ -41,8 +41,8 @@ public class StartUI {
                     System.out.println("Ошибка замены заявки.");
                 }
             } else if (select == 3) {
-                System.out.print("=== Delete item ===");
-                System.out.println("Enter id: ");
+                System.out.println("=== Delete item ===");
+                System.out.print("Enter id: ");
                 int id = Integer.parseInt(scanner.nextLine());
                 tracker.delete(id);
                 Item item = tracker.findById(id);
