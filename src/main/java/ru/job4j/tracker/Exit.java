@@ -1,6 +1,12 @@
 package ru.job4j.tracker;
 
 public class Exit implements UserAction {
+    Output out;
+
+    public Exit(Output out) {
+        this.out = out;
+    }
+
     @Override
     public String name() {
         return "Exit";
@@ -8,7 +14,7 @@ public class Exit implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("Выход из программы ...");
+        out.println("Выход из программы ...");
         return false;
     }
 }
