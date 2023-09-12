@@ -2,6 +2,14 @@ package ru.job4j.tracker;
 
 public class StartUI {
 
+    public static void deleteItem(Input input, Tracker tracker) {
+        System.out.println("=== Delete item ===");
+        int id = input.askInt("Enter id: ");
+        tracker.delete(id);
+        Item item = tracker.findById(id);
+        System.out.println(item == null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
+    }
+
         public void init(Input input, Tracker tracker, UserAction[] actions) {
             boolean run = true;
             while (run) {
