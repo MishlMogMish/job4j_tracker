@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 public class FindByNameAction implements UserAction {
-    Output out;
+    private final Output out;
 
     public FindByNameAction(Output out) {
         this.out = out;
