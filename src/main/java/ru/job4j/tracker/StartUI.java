@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import javax.swing.*;
+
 public class StartUI {
     private final Output out;
 
@@ -8,37 +10,31 @@ public class StartUI {
     }
 
     public void init(Input input, Tracker tracker, UserAction[] actions) {
-            boolean run = true;
-            while (run) {
-                showMenu();
-                int select = input.askInt("Select: ");
-                run = actions[select].execute(input, tracker);
-            }
-        }
-
-        private void showMenu() {
-            String[] menu = {
-                    "Add new Item", "Show all items", "Edit item",
-                    "Delete item", "Find item by id", "Find item by name",
-                    "Exit Program"
-            };
-
-            out.println("Menu: ");
-            for (int i = 0; i < menu.length; i++) {
-                out.println(i + ". " + menu[i]);
-            }
-        }
-
-        public static void main(String[] args) {
-            Input input = new ConsoleInput();
-            Output out = new ConsoleOutput();
-            Tracker tracker = new Tracker();
-            UserAction[] actions = {
-              new CreateAction(out), new ShowAllAction(out),
-                    new ReplaceAction(out), new DeleteAction(out),
-                    new FindByIdAction(out), new FindByNameAction(out),
-                    new Exit(out)
-            };
-            new StartUI(out).init(input, tracker, actions);
+        boolean run = true;
+        while (run) {
+            showMenu(actions);
+            int select = input.askInt("Select: ");
+            run = actions[select].execute(input, tracker);
         }
     }
+
+    private void showMenu(UserAction[] actions) {
+        out.println("Menu: ");
+        for (int i = 0; i < actions.length; i++) {
+            out.println(i + ". " + actions[i].name());
+        }
+    }
+
+    public static void main(String[] args) {
+        Input input = new ConsoleInput();
+        Output out = new ConsoleOutput();
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new CreateAction(out), new ShowAllAction(out),
+                new ReplaceAction(out), new DeleteAction(out),
+                new FindByIdAction(out), new FindByNameAction(out),
+                new Exit(out)
+        };
+        new StartUI(out).init(input, tracker, actions);
+    }
+}
