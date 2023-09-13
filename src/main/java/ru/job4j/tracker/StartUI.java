@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import javax.swing.*;
-
 public class StartUI {
     private final Output out;
 
@@ -14,6 +12,11 @@ public class StartUI {
         while (run) {
             showMenu(actions);
             int select = input.askInt("Select: ");
+            if (select < 0 || select >= actions.length) {
+                out.println("Wrong input, you can select: 0 .. "
+                        + (actions.length - 1));
+                continue;
+            }
             run = actions[select].execute(input, tracker);
         }
     }
@@ -26,15 +29,15 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        Input input = new ConsoleInput();
-        Output out = new ConsoleOutput();
+        Input input = new ValidatedInput();
+        Output output = new ConsoleOutput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(out), new ShowAllAction(out),
-                new ReplaceAction(out), new DeleteAction(out),
-                new FindByIdAction(out), new FindByNameAction(out),
-                new Exit(out)
+                new CreateAction(output), new ShowAllAction(output),
+                new ReplaceAction(output), new DeleteAction(output),
+                new FindByIdAction(output), new FindByNameAction(output),
+                new Exit(output)
         };
-        new StartUI(out).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, actions);
     }
 }
