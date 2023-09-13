@@ -15,7 +15,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(out),
-                new Exit(out)
+                new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName()).isEqualTo("Item name");
@@ -32,7 +32,7 @@ public class StartUITest {
         );
         UserAction[] actions = {
                 new ReplaceAction(out),
-                new Exit(out)
+                new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName()).isEqualTo(replacedName);
@@ -48,7 +48,7 @@ public class StartUITest {
         Output out = new ConsoleOutput();
         UserAction[] actions = {
                 new DeleteAction(out),
-                new Exit(out)
+                new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId())).isNull();
@@ -67,7 +67,7 @@ public class StartUITest {
         );
         UserAction[] actions = new UserAction[]{
                 new ShowAllAction(out),
-                new Exit(out)
+                new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -96,7 +96,7 @@ public class StartUITest {
         );
         UserAction[] actions = new UserAction[]{
                 new ReplaceAction(out),
-                new Exit(out)
+                new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -126,7 +126,7 @@ public class StartUITest {
         );
         UserAction[] actions = new UserAction[]{
                 new FindByIdAction(out),
-                new Exit(out)
+                new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -158,7 +158,7 @@ public class StartUITest {
         );
         UserAction[] actions = new UserAction[]{
                 new FindByNameAction(out),
-                new Exit(out)
+                new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -171,6 +171,28 @@ public class StartUITest {
                         + "Menu: " + ln
                         + "0. Find Item by name" + ln
                         + "1. Exit Program" + ln
+                        + "Выход из программы ..." + ln
+        );
+    }
+
+    @Test
+    public void whenUnvalidatedInputThenValidatedAndExit() {
+        Output out = new StubOutput();
+        Input in = new StabInput(
+                new String[]{"7", "0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = new UserAction[]{
+                new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString()).isEqualTo(
+                "Menu: " + ln
+                        + "0. Exit Program" + ln
+                        + "Wrong input, you can select: 0 .. " + (actions.length - 1) + ln
+                        + "Menu: " + ln
+                        + "0. Exit Program" + ln
                         + "Выход из программы ..." + ln
         );
     }
