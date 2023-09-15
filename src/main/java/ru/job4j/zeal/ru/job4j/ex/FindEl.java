@@ -31,8 +31,8 @@ public class FindEl {
             }
         } catch (ElementAbuseException ea) {
             ea.printStackTrace();
-        } catch (ru.job4j.zeal.ru.job4j.ex.ElementNotFoundException en) {
-            en.printStackTrace();
+        } catch (ru.job4j.zeal.ru.job4j.ex.ElementNotFoundException enf) {
+            enf.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         } catch (Throwable th) {

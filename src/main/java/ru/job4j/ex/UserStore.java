@@ -19,10 +19,10 @@ public class UserStore {
         return rsl;
     }
 
-    public static boolean validate(User user) throws UserUnvalidatedExcertion {
+    public static boolean validate(User user) throws UserInvalidException {
         if (user.getUsername().length() < 3
                 || !user.isValid()) {
-            throw new UserUnvalidatedExcertion("The user login is unvalidated");
+            throw new UserInvalidException("The user login is invalid");
         }
         return true;
     }
@@ -43,8 +43,8 @@ public class UserStore {
             if (validate(findUser(users, logins[index]))) {
                 System.out.println("Access granted for: " + logins[index]);
             }
-        } catch (UserUnvalidatedExcertion euu) {
-            euu.printStackTrace();
+        } catch (UserInvalidException eui) {
+            eui.printStackTrace();
         } catch (UserNotFoundException eunf) {
             eunf.printStackTrace();
         }

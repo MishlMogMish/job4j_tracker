@@ -176,7 +176,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenUnvalidatedInputThenValidatedAndExit() {
+    public void whenInvalidInputThenValidatedAndExit() {
         Output out = new StubOutput();
         Input in = new StabInput(
                 new String[]{"7", "0"}

@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.*;
 class ValidatedInputTest {
 
     @Test
-    public void whenUnvalidatedInput() {
+    public void whenInvalidInput() {
         Output out = new StubOutput();
         Input in = new StabInput(
                 new String[] {"one", "1"}
@@ -61,7 +61,7 @@ class ValidatedInputTest {
     }
 
     @Test
-    public void whenUnvalidatedNegativeIntInput() {
+    public void whenInvalidNegativeIntInput() {
         Output out = new StubOutput();
         Input in = new StabInput(
                 new String[] {"-14"}
