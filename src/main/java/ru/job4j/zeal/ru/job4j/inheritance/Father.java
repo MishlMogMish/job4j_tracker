@@ -1,4 +1,4 @@
-package ru.job4j.zeal.ru.job4j.tracker;
+package ru.job4j.zeal.ru.job4j.inheritance;
 
 public class Father {
 

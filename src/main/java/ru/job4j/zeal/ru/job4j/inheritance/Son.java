@@ -1,4 +1,4 @@
-package ru.job4j.zeal.ru.job4j.tracker;
+package ru.job4j.zeal.ru.job4j.inheritance;
 
 public class Son extends Father {
 
@@ -13,6 +13,8 @@ public class Son extends Father {
     @Override
     public final void print() {
         System.out.println("Father print overrided by Son instance");
+        System.out.println("Now we take print from father, by super ");
+        super.print();
     }
 
     public static void show() {
@@ -41,6 +43,9 @@ public class Son extends Father {
 
         sonOfSon.printTest();
         sonOfFather.printTest();
+        System.out.println();
+
+        System.out.println();
         sonOfSon.print();
         sonOfFather.print();
 
