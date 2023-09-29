@@ -42,4 +42,8 @@ public enum Status {
     }
 
     public abstract String getMessage();
+
+    public static void main(String[] args) {
+        System.out.println(Status.FINISHED.getMessage());
+    }
 }
