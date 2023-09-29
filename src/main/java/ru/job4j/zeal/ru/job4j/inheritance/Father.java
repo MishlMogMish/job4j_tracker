@@ -13,7 +13,7 @@ public class Father {
         System.out.println("Father class " + "age is: " + age);
     }
 
-    public static void show() {
+    public static void staticShow() {
         System.out.println("Show from Father static " + food);
     }
 
@@ -24,11 +24,11 @@ public class Father {
     public void print() {
         System.out.println("Print of father class");
         Father father = new Father();
-        father.show();
+        father.staticShow();
     }
 
     public static void main(String[] args) {
         Father father = new Father();
-        father.show();
+        father.staticShow();
     }
 }

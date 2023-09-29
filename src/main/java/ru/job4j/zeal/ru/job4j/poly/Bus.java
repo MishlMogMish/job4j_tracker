@@ -1,7 +1,7 @@
 package ru.job4j.zeal.ru.job4j.poly;
 
 public class Bus implements Vehicle {
-    private  String name = "Bus";
+    private  String name = getClass().getSimpleName();
 
     @Override
     public void trailerAttach() {
@@ -20,14 +20,14 @@ public class Bus implements Vehicle {
 
     public static void main(String[] args) {
         Vehicle bus = new Bus();
+        Boolean i = bus instanceof Store;
 
-      //  Vehicle vehicle = bus;
-        //Trailer trailer = bus;
         bus.carryLoads();
         bus.transportPeople();
         bus.trailerAttach();
         bus.getRoadInfo("It's ok");
         System.out.println();
         System.out.println(VELICITY_OF_LIGHT);
+        System.out.println(i);
     }
 }

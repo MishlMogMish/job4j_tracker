@@ -14,6 +14,11 @@ public class StubOutput implements Output {
     }
 
     @Override
+    public void print(Object obj) {
+        println(obj);
+    }
+
+    @Override
     public String toString() {
         return buffer.toString();
     }

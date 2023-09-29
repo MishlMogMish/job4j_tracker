@@ -21,7 +21,7 @@ public class GrandSon extends Son {
         grandSon.sonPrint();
         grandSon.grandSonPrint();
         System.out.println("age " + grandSon.age);
-        Father.show();
+        Father.staticShow();
         grandSon.printTest();
         Father father = new Father();
         father.printTest();

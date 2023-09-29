@@ -45,7 +45,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ValidatedInput(output, new ConsoleInput());
+        Input input = new ValidatedInput(output, new ConsoleInput(output));
         ru.job4j.tracker.Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output), new ShowAllAction(output),

@@ -12,9 +12,7 @@ public class Son extends Father {
 
     @Override
     public final void print() {
-        System.out.println("Father print overrided by Son instance");
-        System.out.println("Now we take print from father, by super ");
-        super.print();
+        System.out.println("Father print overridden by Son instance");
     }
 
     public static void show() {
@@ -22,11 +20,11 @@ public class Son extends Father {
     }
 
     public void printTest() {
-        System.out.println("Son overrided printTest");
+        System.out.println("Son overridden printTest instance");
     }
 
     public String printTest(String info) {
-        return "Overloaded method " + info;
+        return "Overloaded instance method " + info;
     }
 
     public static void main(String[] args) {
@@ -36,7 +34,7 @@ public class Son extends Father {
         sonOfSon.sonPrint();
         System.out.println("age " + sonOfFather.age);
         Son.show();
-        Father.show();
+        Father.staticShow();
         sonOfFather.printTest();
         System.out.println(sonOfSon.printTest("try"));
         System.out.println();
@@ -47,14 +45,15 @@ public class Son extends Father {
 
         System.out.println();
         sonOfSon.print();
+        System.out.println("now");
         sonOfFather.print();
 
         System.out.println();
 
         Son.show();
-        Father.show();
+        Father.staticShow();
         sonOfSon.show();
-        sonOfFather.show();
+        sonOfFather.staticShow();
     }
 }
 
