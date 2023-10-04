@@ -12,4 +12,5 @@ public class UsageArrayList {
             System.out.println(string);
         }
     }
+
 }
