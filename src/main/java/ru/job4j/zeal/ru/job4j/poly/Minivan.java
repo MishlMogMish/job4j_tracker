@@ -26,8 +26,6 @@ public class Minivan implements Vehicle {
     public static void main(String[] args) {
         Vehicle minivan = new Minivan();
 
-        //  Vehicle vehicle = bus;
-        //Trailer trailer = bus;
         minivan.carryLoads();
         minivan.transportPeople();
         minivan.trailerAttach();

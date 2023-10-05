@@ -10,20 +10,17 @@ enum Planet {
     URANUS(8.686e+25, 2.5559e7),
     NEPTUNE(1.024e+26, 2.4746e7);
 
-    // поля
-    private final double mass; // в килограммах
-    private final double radius; // в метрах
-    private final  static double G = 6.67e-11;
+    private final double mass;
+    private final double radius;
+    private final static double G = 6.67e-11;
 
-    // конструктор
     Planet(double mass, double radius) {
         this.mass = mass;
         this.radius = radius;
     }
 
-    // метод
     public double getSurfaceGravity() {
-        return  G * mass / (radius * radius);
+        return G * mass / (radius * radius);
     }
 
     public static void main(String[] args) {
