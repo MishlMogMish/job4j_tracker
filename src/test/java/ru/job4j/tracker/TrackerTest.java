@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TrackerTest {
@@ -46,8 +48,8 @@ public class TrackerTest {
         Item second = new Item("Second");
         tracker.add(first);
         tracker.add(second);
-        Item result1 = tracker.findAll()[0];
-        Item result2 = tracker.findAll()[1];
+        Item result1 = tracker.findAll().get(0);
+        Item result2 = tracker.findAll().get(1);
         String expected1 = first.getName();
         String expected2 = second.getName();
         assertThat(result1.getName()).isEqualTo(expected1);
@@ -64,8 +66,8 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
-        Item[] result = tracker.findByName(first.getName());
-        assertThat(result.length).isEqualTo(3);
+        List<Item> result = tracker.findByName(first.getName());
+        assertThat(result.size()).isEqualTo(3);
     }
 
     @Test
@@ -78,8 +80,8 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
-        Item[] result = tracker.findByName(second.getName());
-        assertThat(result[1].getName()).isEqualTo(second.getName());
+        List<Item> result = tracker.findByName(second.getName());
+        assertThat(result.get(1).getName()).isEqualTo(second.getName());
     }
 
     @Test
@@ -123,5 +125,4 @@ public class TrackerTest {
         tracker.delete(1000);
         assertThat(tracker.findById(id).getName()).isEqualTo("Bug");
     }
-
 }
