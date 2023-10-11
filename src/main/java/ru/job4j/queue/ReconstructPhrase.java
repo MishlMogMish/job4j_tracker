@@ -15,13 +15,13 @@ public class ReconstructPhrase {
     private String getEvenElements() {
         Deque<Character> tempDeque = new LinkedList<>(evenElements);
         StringBuilder sb = new StringBuilder();
+        Character tempChar;
 
         for (int i = 0; i < evenElements.size(); i++) {
+            tempChar = tempDeque.pollFirst();
             if (i % 2 == 0) {
-                sb.append(tempDeque.pollFirst());
-                continue;
+                sb.append(tempChar);
             }
-            tempDeque.pollFirst();
         }
         return sb.toString();
     }
