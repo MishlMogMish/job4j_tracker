@@ -12,8 +12,8 @@ public class BankService {
         users.putIfAbsent(user, new ArrayList<>());
     }
 
-    public void deleteUser(String password) {
-        users.remove(findByPassport(password));
+    public void deleteUser(String passport) {
+        users.remove(new User(passport, ""));
     }
 
     public void addAccount(String passport, Account account) {
