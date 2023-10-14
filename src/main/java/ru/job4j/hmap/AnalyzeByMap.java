@@ -55,9 +55,13 @@ public class AnalyzeByMap {
             }
             labels.add(new Label(pupil.name(), sum));
         }
-        labels.sort(Comparator.reverseOrder());
-        List<Label> temp = List.copyOf(labels);
-        return temp.get(0);
+        Label maxScore = labels.get(0);
+        for (Label label : labels) {
+            if (label.compareTo(maxScore) > 0) {
+                maxScore = label;
+            }
+        }
+        return maxScore;
     }
 
     public static Label bestSubject(List<Pupil> pupils) {
@@ -73,8 +77,12 @@ public class AnalyzeByMap {
             subjectLabels.add(new Label(subjectName,
                     (double) subjectsHash.get(subjectName)));
         }
-        subjectLabels.sort(Comparator.reverseOrder());
-        List<Label> temp = List.copyOf(subjectLabels);
-        return temp.get(0);
+        Label maxScore = subjectLabels.get(0);
+        for (Label label : subjectLabels) {
+            if (label.compareTo(maxScore) > 0) {
+                maxScore = label;
+            }
+        }
+        return maxScore;
     }
 }
