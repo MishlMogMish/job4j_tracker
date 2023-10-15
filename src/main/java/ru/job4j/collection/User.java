@@ -23,7 +23,8 @@ public record User(String name, int age) implements Comparable<User> {
 
     @Override
     public int compareTo(User another) {
-        return name.equals(another.name) ? Integer.compare(age, another.age) : name.compareTo(another.name);
+        int result = name.compareTo(another.name);
+        return result == 0 ? Integer.compare(age, another.age) : result;
     }
 }
 
