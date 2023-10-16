@@ -1,6 +1,6 @@
 package ru.job4j.ex;
 
-import ru.job4j.zeal.ru.job4j.ex.UserInputException;
+import ru.job4j.ex.UserInputException;
 
 public class FindEl {
     public static int indexOf(String[] values, String key) throws ElementNotFoundException {
