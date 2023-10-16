@@ -1,9 +1,9 @@
 package ru.job4j.tracker;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ItemAscByNameTest {
     @Test
@@ -15,7 +15,7 @@ public class ItemAscByNameTest {
         List<Item> items = Arrays.asList(item0, item1, item2, item3);
         items.sort(new ItemAscByName());
         List<Item> expected = Arrays.asList(item2, item0, item3, item1);
-        Assertions.assertArrayEquals(expected.toArray(), items.toArray());
+        assertThat(items).containsExactlyElementsOf(expected);
     }
 
     @Test
@@ -27,6 +27,6 @@ public class ItemAscByNameTest {
         List<Item> items = Arrays.asList(item0, item1, item2, item3);
         items.sort(new ItemDescByName());
         List<Item> expected = Arrays.asList(item1, item3, item0, item2);
-        Assertions.assertArrayEquals(expected.toArray(), items.toArray());
+        assertThat(items).containsExactlyElementsOf(expected);
     }
 }
