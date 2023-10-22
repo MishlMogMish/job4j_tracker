@@ -2,63 +2,18 @@ package ru.job4j.zeal.ru.job4j.eckel.collection;
 
 import java.util.*;
 
-class Pet implements Comparable<Pet> {
-    public int id() {
-        return 14;
-    }
-
-    @Override
-    public String toString() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    public int compareTo(Pet o) {
-        return this.getClass().getSimpleName().compareTo(o.getClass().getSimpleName());
-    }
-}
-
-class Rat extends Pet {
-}
-
-class Manx extends Pet {
-}
-
-class Cymric extends Pet {
-    @Override
-    public int id() {
-        return 5;
-    }
-}
-
-class Mutt extends Pet {
-    @Override
-    public int id() {
-        return 14;
-    }
-}
-
-class Pug extends Pet {
-}
-
-class Mouse extends Pet {
-}
-
-class Hamster extends Pet {
-}
+import static ru.job4j.zeal.ru.job4j.eckel.collection.Pet.printPet;
 
 public class ListFeatures {
     public static void main(String[] args) {
-        List<Pet> pets = new ArrayList<>();
+        PetCreator petCreator = new PetCreator();
+        List<Pet> pets = petCreator.create(7);
         Random rand = new Random(47);
-        Collections.addAll(pets, new Rat(),
-                new Manx(), new Cymric(),
-                new Mutt(), new Pug(),
-                new Cymric(), new Pug());
         System.out.println("1: " + pets);
         Hamster h = new Hamster();
         pets.add(h);
         System.out.println("2: " + pets);
+        printPet(pets, "pets");
         System.out.println("2: " + pets.contains(h));
         pets.remove(h);
         Pet p = pets.get(2);
@@ -82,21 +37,24 @@ public class ListFeatures {
         System.out.println("shuffled subList: " + sub);
         System.out.println("12: " + pets.containsAll(sub));
         List<Pet> copy = new ArrayList<>(pets);
+        printPet(copy, "copy: ");
         sub = Arrays.asList(pets.get(1), pets.get(4));
+        printPet(sub, "sub: ");
         System.out.println("sub: " + sub);
         copy.retainAll(sub);
         System.out.println("13: " + copy);
         copy = new ArrayList<>(pets);
         System.out.println("before remove: " + copy);
-
         copy.remove(2);
         System.out.println("14: " + copy);
         copy.removeAll(sub);
         System.out.println("15: " + copy);
         copy.set(1, new Mouse());
+        printPet(copy, "copy: ");
         System.out.println("16: " + copy);
         copy.addAll(2, sub);
         System.out.println("17: " + copy);
+        printPet(copy, "copy");
         System.out.println("18: " + pets.isEmpty());
         pets.clear();
         System.out.println("19: " + pets);
@@ -106,6 +64,7 @@ public class ListFeatures {
         pets.add(new Cymric());
         pets.add(new Mutt());
         System.out.println("21: " + pets);
+        printPet(pets, "pets");
         Object[] o = pets.toArray();
         System.out.println("22: " + o[3]);
         Pet[] pa = pets.toArray(new Pet[0]);
