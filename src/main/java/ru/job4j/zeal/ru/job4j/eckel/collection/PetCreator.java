@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PetCreator {
-    private List<Pet> allPets = new ArrayList<>();
+    private static List<Pet> allPets = new ArrayList<>();
 
-    public  List<Pet> create(int num) {
+    public static List<Pet> create(int num) {
         if (num-- > 0) {
             allPets.add(new Rat());
         }

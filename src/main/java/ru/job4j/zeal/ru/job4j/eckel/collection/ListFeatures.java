@@ -6,8 +6,7 @@ import static ru.job4j.zeal.ru.job4j.eckel.collection.Pet.printPet;
 
 public class ListFeatures {
     public static void main(String[] args) {
-        PetCreator petCreator = new PetCreator();
-        List<Pet> pets = petCreator.create(7);
+        List<Pet> pets = PetCreator.create(7);
         Random rand = new Random(47);
         System.out.println("1: " + pets);
         Hamster h = new Hamster();

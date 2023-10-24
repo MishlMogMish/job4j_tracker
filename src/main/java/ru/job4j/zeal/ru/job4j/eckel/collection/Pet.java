@@ -1,16 +1,20 @@
 package ru.job4j.zeal.ru.job4j.eckel.collection;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 class Pet implements Comparable<Pet> {
 
+    private String name;
     private static int counter;
     private final int id;
 
     public Pet() {
         id = counter++;
+    }
+
+    public Pet(String name) {
+        id = counter++;
+        this.name = name;
     }
 
     public int id() {
@@ -19,7 +23,7 @@ class Pet implements Comparable<Pet> {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName();
+        return getClass().getSimpleName() + " " + (name != null ? name : "");
     }
 
     @Override

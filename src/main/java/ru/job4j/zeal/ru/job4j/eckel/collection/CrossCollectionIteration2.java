@@ -13,8 +13,7 @@ public class CrossCollectionIteration2 {
     }
 
     public static void main(String[] args) {
-        PetCreator creator = new PetCreator();
-        List<Pet> pets = creator.create(8);
+        List<Pet> pets = PetCreator.create(8);
         LinkedList<Pet> petsLL = new LinkedList<>(pets);
         HashSet<Pet> petsHS = new HashSet<>(pets);
         TreeSet<Pet> petsTS = new TreeSet<>(pets);

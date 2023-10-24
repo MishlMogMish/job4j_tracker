@@ -5,8 +5,7 @@ import java.util.ListIterator;
 
 public class ListIteration {
     public static void main(String[] args) {
-        PetCreator creator = new PetCreator();
-        List<Pet> pets = creator.create(8);
+        List<Pet> pets = PetCreator.create(8);
         ListIterator<Pet> it = pets.listIterator();
         int counter = 5;
         while (it.hasNext()  && counter-- > 0) {

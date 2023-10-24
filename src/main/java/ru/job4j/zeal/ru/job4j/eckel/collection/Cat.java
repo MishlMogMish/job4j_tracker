@@ -1,11 +1,10 @@
 package ru.job4j.zeal.ru.job4j.eckel.collection;
 
-class Rat extends Pet {
-    Rat() {
-        super();
+public class Cat extends Pet {
+    public Cat() {
     }
 
-    Rat(String name) {
+    public Cat(String name) {
         super(name);
     }
 }
