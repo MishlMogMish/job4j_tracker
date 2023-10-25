@@ -1,16 +1,15 @@
 package ru.job4j.zeal.ru.job4j.eckel.collection;
 
-import java.util.AbstractCollection;
-import java.util.*;
+import java.util.Iterator;
 
-public class CollectionSequence extends AbstractCollection<Pet> {
-    private List<Pet> petList = PetCreator.create(8);
-    private Pet[] pets = petList.toArray(new Pet[8]);
+class PetSequence {
+    protected Pet[] pets = PetCreator.create(8).toArray(new Pet[8]);
+}
 
-    @Override
+public class NonCollectionSequence extends PetSequence {
     public Iterator<Pet> iterator() {
         return new Iterator<>() {
-            private int index = 0;
+            int index = 0;
             @Override
             public boolean hasNext() {
                 return index < pets.length;
@@ -28,15 +27,8 @@ public class CollectionSequence extends AbstractCollection<Pet> {
         };
     }
 
-    @Override
-    public int size() {
-        return pets.length;
-    }
-
     public static void main(String[] args) {
-        CollectionSequence c = new CollectionSequence();
-        InterfaceVsIterator.display(c);
-        InterfaceVsIterator.display(c.iterator());
+        NonCollectionSequence nc = new NonCollectionSequence();
+        InterfaceVsIterator.display(nc.iterator());
     }
-
 }
