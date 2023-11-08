@@ -59,6 +59,13 @@ public class MultiIterableClass extends IterableClass {
         System.out.println();
     }
 
+    public static void printInfo(Object[] obj) {
+        for (Object o : obj) {
+            System.out.print(" " + o + "   ;");
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         MultiIterableClass mic = new MultiIterableClass();
         for (String s : mic.reversed()) {

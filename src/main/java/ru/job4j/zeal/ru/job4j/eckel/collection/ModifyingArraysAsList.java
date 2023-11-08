@@ -22,5 +22,14 @@ public class ModifyingArraysAsList {
         System.out.println("After shuffling: " + list2);
         MultiIterableClass.printInfo(ia);
         System.out.println("array: " + Arrays.toString(ia));
+        Collection<Integer> newCollection = new LinkedList<>(Arrays.asList(ia));
+        Object[] intArr = newCollection.toArray();
+        intArr[3] = 101;
+        for (Object object : intArr) {
+            System.out.print(object + " ");
+        }
+        System.out.println();
+        MultiIterableClass.printInfo(intArr);
+        MultiIterableClass.printInfo(ia);
     }
 }
