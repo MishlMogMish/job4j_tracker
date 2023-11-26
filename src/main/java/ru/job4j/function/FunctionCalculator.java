@@ -17,4 +17,5 @@ public class FunctionCalculator {
         FunctionCalculator functionCalculator = new FunctionCalculator();
         System.out.println(functionCalculator.diapason(4, 17, n -> Math.sqrt(n)));
     }
+
 }
