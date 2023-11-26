@@ -19,8 +19,6 @@ public class ExceptionDemo {
             try {
                 specialFunc(n);
             } catch (ArithmeticException e) {
-               //*
-                // throw new RuntimeException("Разделил на 0 - Такая вот фигня!");
                 System.out.println("Пропускаем и идем дальше");
             }
         });
