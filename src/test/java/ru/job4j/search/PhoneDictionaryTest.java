@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class PhoneDictionaryTest {
     @Test
-    public void whenFindByName() {
+    public void whenFindByPartOfName() {
         PhoneDictionary phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
@@ -25,5 +25,15 @@ public class PhoneDictionaryTest {
         );
         ArrayList<Person> persons = phones.find("mosc");
         assertThat(persons.size()).isEqualTo(0);
+    }
+
+    @Test
+    public void whenFindByFullName() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("Petr", "Arsentev", "534872", "Bryansk")
+        );
+        ArrayList<Person> persons = phones.find("Petr");
+        assertThat(persons.get(0).surname()).isEqualTo("Arsentev");
     }
 }
