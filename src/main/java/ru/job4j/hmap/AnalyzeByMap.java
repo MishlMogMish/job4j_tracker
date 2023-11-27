@@ -31,17 +31,17 @@ public class AnalyzeByMap {
     }
 
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
-        HashMap<String, Integer> subjectsHash = new LinkedHashMap<>();
+        HashMap<String, Integer> subjects = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                subjectsHash.put(subject.subjectName(),
-                        subjectsHash.getOrDefault(subject.subjectName(), 0) + subject.score());
+                subjects.merge(subject.subjectName(), subject.score(), Integer::sum);
             }
         }
+
         List<Label> subjectLabels = new LinkedList<>();
-        for (String subjectName : subjectsHash.keySet()) {
+        for (String subjectName : subjects.keySet()) {
             subjectLabels.add(new Label(subjectName,
-                    (double) subjectsHash.get(subjectName) / pupils.size()));
+                    (double) subjects.get(subjectName) / pupils.size()));
         }
         return List.copyOf(subjectLabels);
     }
@@ -65,17 +65,16 @@ public class AnalyzeByMap {
     }
 
     public static Label bestSubject(List<Pupil> pupils) {
-        HashMap<String, Integer> subjectsHash = new LinkedHashMap<>();
+        HashMap<String, Integer> subjects = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                subjectsHash.put(subject.subjectName(),
-                        subjectsHash.getOrDefault(subject.subjectName(), 0) + subject.score());
+                subjects.merge(subject.subjectName(), subject.score(), Integer::sum);
             }
         }
         List<Label> subjectLabels = new LinkedList<>();
-        for (String subjectName : subjectsHash.keySet()) {
+        for (String subjectName : subjects.keySet()) {
             subjectLabels.add(new Label(subjectName,
-                    (double) subjectsHash.get(subjectName)));
+                    (double) subjects.get(subjectName)));
         }
         Label maxScore = subjectLabels.get(0);
         for (Label label : subjectLabels) {
