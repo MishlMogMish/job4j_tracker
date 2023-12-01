@@ -57,8 +57,10 @@ class SchoolTest {
                 new Student(90, "Surname9")
         );
         School school = new School();
-        Predicate<Student> predicateMin = student -> student.getScore() > 0;
-        Predicate<Student> predicate = predicateMin.and(student -> student.getScore() < 50);
+        Predicate<Student> predicate = student -> {
+            int score = student.getScore();
+            return score < 50 && score > 0;
+        };
         List<Student> result = school.collect(students, predicate);
         List<Student> expected = new ArrayList<>();
         expected.add(new Student(10, "Surname1"));
