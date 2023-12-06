@@ -10,28 +10,28 @@ import static org.assertj.core.api.Assertions.assertThat;
 class DepartmentsTest {
     @Test
     public void whenMissed() {
-        List<String> input = Arrays.asList("k1/sk1", "k2/sk1");
-        List<String> expect = Arrays.asList("k1", "k1/sk1", "k2", "k2/sk1");
+        List<String> input = List.of("k1/sk1", "k2/sk1");
+        List<String> expect = List.of("k1", "k1/sk1", "k2", "k2/sk1");
         List<String> result = Departments.fillGaps(input);
         assertThat(result).containsSequence(expect);
     }
 
     @Test
     public void whenNoChange() {
-        List<String> input = Arrays.asList("k1", "k1/sk1");
-        List<String> expect = Arrays.asList("k1", "k1/sk1");
+        List<String> input = List.of("k1", "k1/sk1");
+        List<String> expect = List.of("k1", "k1/sk1");
         List<String> result = Departments.fillGaps(input);
         assertThat(result).containsSequence(expect);
     }
 
     @Test
     public void whenMissedSomeDepartmentsCode() {
-        List<String> input = Arrays.asList(
+        List<String> input = List.of(
                 "k1/sk1/ssk1",
                 "k1/sk1/ssk2",
                 "k2/sk1/ssk1"
         );
-        List<String> expect = Arrays.asList(
+        List<String> expect = List.of(
                 "k1",
                 "k1/sk1",
                 "k1/sk1/ssk1",
