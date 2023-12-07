@@ -21,8 +21,8 @@ public class PriorityQueue {
      * @param task задача, которая добавляется в очередь
      */
     public void put(Task task) {
-        int index = 0;
-        for (Task element : tasks) {
+        var index = 0;
+        for (var element : tasks) {
             if (element.priority() > task.priority()) {
                 break;
             }
@@ -40,16 +40,16 @@ public class PriorityQueue {
     }
 
     public static void main(String[] args) {
-        PriorityQueue queue = new PriorityQueue();
-        Task task1 = new Task("to up", 5);
-        Task task2 = new Task("to up", 7);
-        Task task3 = new Task("to up", 514);
-        Task task4 = new Task("to up", 2);
-        Task task5 = new Task("to up", 309);
-        Task task6 = new Task("to up", 31);
-        Task task7 = new Task("to up", 3);
-        Task task8 = new Task("to up", 33);
-        Task task9 = new Task("to up", 3);
+        var queue = new PriorityQueue();
+        var task1 = new Task("to up", 5);
+        var task2 = new Task("to up", 7);
+        var task3 = new Task("to up", 514);
+        var task4 = new Task("to up", 2);
+        var task5 = new Task("to up", 309);
+        var task6 = new Task("to up", 31);
+        var task7 = new Task("to up", 3);
+        var task8 = new Task("to up", 33);
+        var task9 = new Task("to up", 3);
 
         queue.put(task1);
         queue.put(task2);
