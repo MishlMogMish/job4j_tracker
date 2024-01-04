@@ -22,9 +22,8 @@ public class College {
         Optional<Student> opStudent = findByAccount(account);
 
         return opStudent
-                .flatMap(optionalStudent -> Optional.ofNullable(students.get(optionalStudent))
+                .flatMap(optionalStudent -> students.get(optionalStudent)
                 .stream()
-                .flatMap(Set::stream)
                 .filter(subject -> subject.name().equals(name))
                 .findFirst());
     }
