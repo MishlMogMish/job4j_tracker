@@ -50,7 +50,7 @@ public class Analyze {
                                 .mapToInt(Subject::score)
                                 .sum()))
                 .max((left, right) -> Double.compare(left.score(), right.score()))
-                .orElse(new Tuple("Nobody", 0));
+                .orElse(null);
     }
 
     public static Tuple bestSubject(Stream<Pupil> stream) {
@@ -61,12 +61,11 @@ public class Analyze {
                 .collect(Collectors
                         .groupingBy(
                                 Subject::name,
-                                LinkedHashMap::new,
                                 Collectors.summingDouble(Subject::score)))
                 .entrySet()
                 .stream()
                 .map(entry -> new Tuple(entry.getKey(), entry.getValue()))
                 .max((left, right) -> Double.compare(left.score(), right.score()))
-                .orElse(new Tuple("NoSubject", 0));
+                .orElse(null);
     }
 }
